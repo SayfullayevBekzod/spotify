@@ -35,6 +35,4 @@ class UserUnfollowView(APIView):
             raise APIException("You are not following")
 
 
-__all__ = (
-    "UserUnfollowView",
-)
+__all__ = ("UserUnfollowView",)

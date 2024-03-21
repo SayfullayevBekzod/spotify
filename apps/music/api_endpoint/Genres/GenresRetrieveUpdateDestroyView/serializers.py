@@ -6,4 +6,4 @@ from apps.music.models import Genre
 class GenresRetrieveUpdateDestroySerializer(ModelSerializer):
     class Meta:
         model = Genre
-        fields = ('name',)
+        fields = ("name",)

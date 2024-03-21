@@ -8,6 +8,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/users/", include("apps.user.urls")),
     path("api/v1/music/", include("apps.music.urls")),
+    # path('password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
 urlpatterns += swagger_patterns
 if settings.DEBUG:

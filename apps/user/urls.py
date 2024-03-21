@@ -12,7 +12,10 @@ from apps.user.api_endpoints.Follow import (
     UserArtistFollowView,
     UserArtistUnFollowView,
 )
-from apps.user.api_endpoints.User import UserCreateView, UserListView, UpdatePassword
+from apps.user.api_endpoints.User import (
+    UserCreateView,
+    UserListView,
+)
 
 urlpatterns = [
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
@@ -25,5 +28,5 @@ urlpatterns = [
     path("artist-unfollow/", UserArtistUnFollowView.as_view()),
     path("<pk>/followers/", UserFollowersView.as_view()),
     path("<pk>/followings/", UserFollowingsView.as_view()),
-    path('user-change-password/', UpdatePassword.as_view())
+    # path("user-change-password/", ChangePasswordView.as_view()),
 ]

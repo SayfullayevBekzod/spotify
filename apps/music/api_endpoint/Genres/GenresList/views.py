@@ -9,4 +9,4 @@ class GenresListView(ListAPIView):
     serializer_class = GenresListSerializer
 
 
-__all__ = ('GenresListView',)
+__all__ = ("GenresListView",)
