@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "drf_spectacular",
     "drf_spectacular_sidecar",
-    # 'django_rest_passwordreset',
+    "django_rest_passwordreset",
 ]
 
 MIDDLEWARE = [
@@ -40,7 +40,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
-
+DJANGO_REST_LOOKUP_FIELD = "custom_email_field"
+HTTP_USER_AGENT_HEADER = "HTTP_USER_AGENT"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -138,5 +139,5 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "sayfulayevbekzod1234@gmail.com"
-EMAIL_HOST_PASSWORD = "bekzod20061710"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")

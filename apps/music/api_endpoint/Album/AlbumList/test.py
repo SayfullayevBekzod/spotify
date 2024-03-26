@@ -44,7 +44,7 @@ class AlbumRetrieveUpdateDestroyViewTest(APITestCase):
         self.album = Album.objects.create(title="Test Album", author=self.artist)
 
     def test_album_retrieve(self):
-        url = reverse('album-detail', kwargs={'pk': self.album.pk})
+        url = reverse("album-detail", kwargs={"pk": self.album.pk})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["title"], self.album.title)
@@ -52,7 +52,7 @@ class AlbumRetrieveUpdateDestroyViewTest(APITestCase):
         self.assertEqual(response.data["author"], str(self.artist.id))
 
     def test_album_update(self):
-        url = reverse('album-detail', kwargs={'pk': self.album.pk})
+        url = reverse("album-detail", kwargs={"pk": self.album.pk})
         update_data = {"title": "Update Title"}
         response = self.client.put(url, update_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -60,7 +60,7 @@ class AlbumRetrieveUpdateDestroyViewTest(APITestCase):
         self.assertEqual(self.album.title, update_data["title"])
 
     def test_album_delete(self):
-        url = reverse('album-detail', kwargs={'pk': self.album.pk})
+        url = reverse("album-detail", kwargs={"pk": self.album.pk})
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Album.objects.filter(pk=self.album.pk).exists())

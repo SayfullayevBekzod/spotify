@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -16,6 +16,7 @@ from apps.user.api_endpoints.User import (
     UserCreateView,
     UserListView,
 )
+from apps.user.api_endpoints.UserActive.views import UserActivateView
 
 urlpatterns = [
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
@@ -28,5 +29,5 @@ urlpatterns = [
     path("artist-unfollow/", UserArtistUnFollowView.as_view()),
     path("<pk>/followers/", UserFollowersView.as_view()),
     path("<pk>/followings/", UserFollowingsView.as_view()),
-    # path("user-change-password/", ChangePasswordView.as_view()),
+    path("user-activate/<str:token>", UserActivateView.as_view(), name="user-activate"),
 ]

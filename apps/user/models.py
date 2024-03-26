@@ -14,6 +14,7 @@ from django.dispatch import receiver
 
 from apps.shared.models import AbstractModel
 from apps.user.managers import UserManager
+
 # from django_rest_passwordreset.signals import reset_password_token_created
 
 
@@ -66,6 +67,7 @@ class Playlist(AbstractModel):
     owner = ForeignKey("user.User", CASCADE)
     title = CharField(max_length=128)
     musics = ManyToManyField("music.Song")
+
 
 # @receiver(reset_password_token_created)
 # def password_reset_token_created(

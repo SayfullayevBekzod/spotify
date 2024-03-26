@@ -3,6 +3,7 @@ from django.views.decorators.cache import cache_page
 from rest_framework.generics import ListAPIView
 
 from apps.user.api_endpoints.Follow.User.UserList.serializers import UserListSerializer
+
 # from apps.user.debugger import debugger
 from apps.user.models import User
 
